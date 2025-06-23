@@ -18,7 +18,11 @@ const server = http.createServer(app);
 // CORS para socket.io
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:5500', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:5500',
+      'http://localhost:3000',
+      'https://salud-mental-frontend.netlify.app',
+    ],
     credentials: true,
   },
 });
@@ -39,7 +43,11 @@ mongoose
 // CORS para Express
 app.use(
   cors({
-    origin: ['http://localhost:5500', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:5500',
+      'http://localhost:3000',
+      'https://salud-mental-frontend.netlify.app',
+    ],
     credentials: true,
   })
 );
