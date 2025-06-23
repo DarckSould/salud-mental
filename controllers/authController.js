@@ -18,8 +18,8 @@ const login = async (req, res) => {
     res
       .cookie('token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // true si estás en producción
-        sameSite: 'lax',
+        secure: true, // Forzar si estás en Netlify + Render
+        sameSite: 'None', // Cambiar a 'None' cuando frontend y backend están en diferentes dominios
         maxAge: 7 * 24 * 60 * 60 * 1000,
       })
       .json({ usuario });
