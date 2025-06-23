@@ -18,7 +18,7 @@ const login = async (req, res) => {
     res
       .cookie('token', token, {
         httpOnly: true,
-        secure: false, // Usa true en producción con HTTPS
+        secure: true, // Usa true en producción con HTTPS
         sameSite: 'lax',
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
       })
