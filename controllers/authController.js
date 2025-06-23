@@ -18,9 +18,9 @@ const login = async (req, res) => {
     res
       .cookie('token', token, {
         httpOnly: true,
-        secure: true, // Usa true en producción con HTTPS
+        secure: process.env.NODE_ENV === 'production', // true si estás en producción
         sameSite: 'lax',
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
+        maxAge: 7 * 24 * 60 * 60 * 1000,
       })
       .json({ usuario });
   } catch (error) {
